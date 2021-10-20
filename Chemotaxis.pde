@@ -1,13 +1,34 @@
- //declare bacteria variables here   
- void setup()   
- {     
- 	//initialize bacteria variables here   
- }   
- void draw()   
- {    
- 	//move and show the bacteria   
- }  
- class Bacteria    
- {     
- 	//lots of java!   
- }    
+class Walker {
+  int myX, myY, starColor;
+  Walker(){
+    myX = (int)(Math.random()*1000);
+    myY = (int)(Math.random()*1000);
+  }
+  void walk() {
+    myX = myX + (int)(Math.random()*7)-3;
+    myY = myY + (int)(Math.random()*7)-3;
+  }
+  void show(){
+    ellipse(myX, myY, 50, 50);
+  }
+}
+
+Walker [] bob = new Walker[25];
+
+void setup(){
+  size(1000,1000);
+  background(0);
+  for (int i = 0; i < bob.length; i++) {
+    bob[i] = new Walker();
+  }
+}
+
+void draw(){
+  background(0);
+  int j = 0;
+  while (j < bob.length){
+    bob[j].walk();
+    bob[j].show();
+    j++;
+  }
+}
