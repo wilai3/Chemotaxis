@@ -1,14 +1,16 @@
 class Walker {
   int myX, myY, starColor;
   Walker(){
-    myX = (int)(Math.random()*1000);
-    myY = (int)(Math.random()*1000);
+    myX = (int)(Math.random()*750);
+    myY = (int)(Math.random()*750);
+    starColor = (int)(Math.random()*255);
   }
   void walk() {
     myX = myX + (int)(Math.random()*7)-3;
     myY = myY + (int)(Math.random()*7)-3;
   }
   void show(){
+    fill(starColor);
     ellipse(myX, myY, 50, 50);
   }
 }
@@ -16,7 +18,7 @@ class Walker {
 Walker [] bob = new Walker[25];
 
 void setup(){
-  size(1000,1000);
+  size(750,750);
   background(0);
   for (int i = 0; i < bob.length; i++) {
     bob[i] = new Walker();
