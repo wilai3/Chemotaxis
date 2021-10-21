@@ -3,7 +3,7 @@ class Walker {
   Walker(){
     myX = (int)(Math.random()*750);
     myY = (int)(Math.random()*750);
-    starColor = (int)(Math.random()*255);
+    starColor = color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
   }
   void walk() {
     myX = myX + (int)(Math.random()*7)-3;
@@ -14,6 +14,10 @@ class Walker {
     noStroke();
     ellipse(myX, myY, 25, 25);
     triangle(myX-12,myY,myX+12,myY,myX,myY-30);
+    triangle(myX,myY-12,myX,myY+12,myX+30,myY);
+    triangle(myX-5,myY+12,myX,myY,myX+20,myY+30);
+    triangle(myX+5,myY+6,myX-5,myY,myX-25,myY+30);
+    triangle(myX,myY-12,myX,myY+12,myX-30,myY);
     
   }
 }
