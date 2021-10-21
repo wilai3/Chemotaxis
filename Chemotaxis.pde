@@ -11,7 +11,10 @@ class Walker {
   }
   void show(){
     fill(starColor);
-    ellipse(myX, myY, 50, 50);
+    noStroke();
+    ellipse(myX, myY, 25, 25);
+    triangle(myX-12,myY,myX+12,myY,myX,myY-30);
+    
   }
 }
 
