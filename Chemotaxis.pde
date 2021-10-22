@@ -1,14 +1,17 @@
 class Walker {
-  int myX, myY, starColor;
+  int myX, myY, starColor, oldX, oldY;
   Walker(){
-    myX = (int)(Math.random()*750);
+    myX = (int)(Math.random()*250)+500;
     myY = (int)(Math.random()*750);
     starColor = color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
   }
   void walk() {
-    myX = myX + (int)(Math.random()*7)-3;
-    myY = myY + (int)(Math.random()*7)-3;
-  }
+    oldX = myX;
+    oldY = myY;
+    myX = oldX + (int)(Math.random()*7)-5;
+    myY = oldY + (int)(Math.random()*7)-2;
+}
+  
   void show(){
     fill(starColor);
     noStroke();
@@ -18,11 +21,15 @@ class Walker {
     triangle(myX-5,myY+12,myX,myY,myX+20,myY+30);
     triangle(myX+5,myY+6,myX-5,myY,myX-25,myY+30);
     triangle(myX,myY-12,myX,myY+12,myX-30,myY);
-    
+    stroke(starColor);
+    strokeWeight(10);
+    line(myX,myY,myX+100,oldY-100);
   }
 }
 
-Walker [] bob = new Walker[25];
+Walker [] bob = new Walker[50];
+int j = 0;
+int k = 0;
 
 void setup(){
   size(750,750);
